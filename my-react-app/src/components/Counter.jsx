@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 function Counter() {
-  const [count, setCount] = useState(0);
+ 
+  const [detail, setDetail] = useState({count: 0, name: ""})
+
+
+  function Increment(){ 
+    setDetail((prev) => ({...prev, count: prev.count + 1}))
+   
+  }
+
+  useEffect( ()=>{
+    document.title = `you clicked ${detail.count} times`
+  }, [])
+
+  console.log(detail)
   return (
     <div>
-      <p> counter: {count}</p>
-      <button onclick={() => setCount(count + 1)}>+</button>
-      <button onclick={() => setCount(count - 1)}>-</button>
-      <button onclick={() => setCount(0)}>reset</button>
+      <input type="text" onChange={(e) => e.target.value} />
+      <p>{detail.name} you clicked {detail.count}</p>
+      <button onClick={Increment}>click me</button>
     </div>
   );
 }
