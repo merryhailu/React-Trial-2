@@ -10,6 +10,7 @@ import Counter from './components/Counter';
 import MainComponent from './components/MainComponent';
 import LoginContextProvider from './context/LoginContextProvider';
 import UseRef from './components/UseRef';
+import UseMemo from './components/useMemo';
 
 function App() {
 
@@ -29,7 +30,9 @@ function App() {
   
       </LoginContextProvider> */}
     
-     <UseRef />
+     {/* <UseRef /> */}
+     <UseMemo />
+     
   
     </>
   );
