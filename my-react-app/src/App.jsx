@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import * as ReactDOM from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 import './App.css';
 import WelcomeMessage from './components/welcomeMessage';
@@ -11,9 +16,21 @@ import MainComponent from './components/MainComponent';
 import LoginContextProvider from './context/LoginContextProvider';
 import UseRef from './components/UseRef';
 import UseMemo from './components/useMemo';
+import Fetch from './components/Fetch';
 
 function App() {
 
+  const router = createBrowserRouter(([
+    {
+      path: '/', element: <App />
+    }
+  ]))
+
+  ReactDom.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+      <RouterProvider router= {router}/>
+    </React.StrictMode>
+  )
 
   return (
     <>
@@ -31,9 +48,9 @@ function App() {
       </LoginContextProvider> */}
     
      {/* <UseRef /> */}
-     <UseMemo />
+     {/* <UseMemo /> */}
      
-  
+  <Fetch />
     </>
   );
 }

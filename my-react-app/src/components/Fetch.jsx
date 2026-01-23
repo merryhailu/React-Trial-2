@@ -1,21 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import useFetch from "../hooks/useFetch"
+
 
 const Fetch = () => {
- const [responses, setResponses] = useState([]);
 
-useEffect(() => {
-     fetch('https://jsonplaceholder.typicode.com/users')
-     .then((response) => response.json())
-     .then((data) => setResponses(data) )
-
-} , []);
-
+const data = useFetch('https://jsonplaceholder.typicode.com/users')
 
   return (
     <div>
-      { responses.map((response) => {
+      { data.map((response) => {
     return (
-        <h4 key={response.id}>{response.name}</h4>
+        <h4 key={response.id}>
+         {response.id}. {response.name}</h4>
      )
 })}
     </div>
