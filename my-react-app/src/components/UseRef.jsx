@@ -24,6 +24,8 @@ const handleClick = () =>{
  <h2>name {name}</h2>
  <h3>Count {count.current}</h3>
 
+ <input type='number'/>
+
 
  <input type='text' ref={inputEle}/>
  
