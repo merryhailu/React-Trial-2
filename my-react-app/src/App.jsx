@@ -12,6 +12,14 @@ import LoginContextProvider from './context/LoginContextProvider';
 import UseRef from './components/UseRef';
 import UseMemo from './components/useMemo';
 import Fetch from './components/Fetch';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Dashboard from './pages/Dashboard';
+import NotfoundPage from './pages/NotfoundPage';
+import NavBar from './pages/NavBar';
+import DashboardItem from './pages/DashboardItem';
+import Layout from './components/Layout';
 
 function App() {
 
@@ -19,6 +27,16 @@ function App() {
 
   return (
     <>
+   
+    <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/:userid" element={<DashboardItem/>} />
+        <Route path="*" element={<NotfoundPage />} />
+        </Routes>
+      
       {/* <WelcomeMessage />
       <Header />
       <MainContent />
@@ -35,8 +53,17 @@ function App() {
      {/* <UseRef /> */}
      {/* <UseMemo /> */}
      
-  <Fetch />
-    </>
+  {/* <Fetch /> */}
+      
+      
+      
+      
+      
+    
+
+
+</>
+    
   );
 }
 
