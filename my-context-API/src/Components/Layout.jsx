@@ -1,10 +1,10 @@
 import React from 'react'
 import Form from './Form'
 
-function Layout({isLoading, onClickSubmit}) {
+function Layout() {
   return (
     <layout>
-        <Form isLoading={isLoading} onClickSubmit={onClickSubmit} />
+        <Form  />
     </layout>
   )
 }

@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppState } from '../App';
 
-function Button({isLoading , onClickSubmit }) {
+
+function Button() {
+ const {loading , onSubmit} = useContext(AppState);
+
+
   return (
     <div>
-        <button  onClick={onClickSubmit} disabled={isLoading}>
-             {isLoading ? "...loading" : "submit"}
+        <button onClick={onSubmit} disabled={loading} >
+           {loading ? "...Loading" : "Submit"}
         </button>
     </div>
   )

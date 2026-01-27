@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Button from './Button'
+import { AppState } from '../App'
 
-function Form({isLoading, onClickSubmit}) {
+function Form() {
+   const { loading }= useContext(AppState);
   return (
     <form>
-        <Button isLoading={isLoading} onClickSubmit={onClickSubmit} />
+        {loading ? "form is loading" : "not yet"}
+        <Button  />
     </form>
   )
 }

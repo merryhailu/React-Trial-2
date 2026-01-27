@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useState , createContext } from 'react'
 
 import './App.css'
 import Layout from './Components/Layout'
 
+
+export const AppState = createContext();
 function App() {
 
-  const [loading, setLoading]= useState(false);
 
+
+  const [loading, setLoading]= useState(false);
 
 const onSubmit= () => {
   setLoading(true)
@@ -16,14 +19,11 @@ const onSubmit= () => {
   }, 2000)
 }
 
-
-
-
   return (
     <>
-
-<Layout isLoading={loading} onClickSubmit={onSubmit} /> 
-     
+<AppState.Provider value={{loading , onSubmit}}>
+<Layout  /> 
+</AppState.Provider>
     </>
   )
 }
