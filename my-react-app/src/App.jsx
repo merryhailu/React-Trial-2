@@ -19,7 +19,6 @@ import Dashboard from './pages/Dashboard';
 import NotfoundPage from './pages/NotfoundPage';
 import NavBar from './pages/NavBar';
 import DashboardItem from './pages/DashboardItem';
-import Layout from './components/Layout';
 
 function App() {
 
