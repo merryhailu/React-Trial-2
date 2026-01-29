@@ -5,6 +5,9 @@ import Layout from './Components/Layout'
 import Login from './Components/Login';
 import Profile from './Components/Profile';
 import { LoginContext } from './context/LoginContext';
+import Counter from './Components/Counter';
+import ProfilePage from './Components/ProfilePage';
+import { UserContext } from './context/UserContext';
 
 
 export const AppState = createContext();
@@ -13,8 +16,15 @@ export const AppState = createContext();
 
 
 function App() {
-const [username, setUsername] = useState()
-const [showProfile, setShowProfile] = useState(false)
+
+const userData = {
+  name: "Meron Hailu",
+  email: "meron@email.com"
+}
+
+
+// const [username, setUsername] = useState()
+// const [showProfile, setShowProfile] = useState(false)
 
 //   const [loading, setLoading]= useState(false);
 // const onSubmit= () => {
@@ -29,10 +39,16 @@ const [showProfile, setShowProfile] = useState(false)
 <Layout  /> 
 </AppState.Provider> */}
  
- <LoginContext.Provider value={{username, setUsername, setShowProfile}}>
+ {/* <LoginContext.Provider value={{username, setUsername, setShowProfile}}>
    {showProfile ? <Profile/> : <Login />}
- </LoginContext.Provider>
+ </LoginContext.Provider> */}
 
+{/* <Counter /> */}
+
+<UserContext.Provider value={{userData}}>
+
+<ProfilePage  />
+</UserContext.Provider>
 
     </>
   )
