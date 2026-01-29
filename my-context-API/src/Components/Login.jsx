@@ -1,11 +1,11 @@
-import React, {  useContext, useState } from 'react'
+import React, {  useContext } from 'react'
 import { LoginContext } from '../context/LoginContext'
 import Profile from './Profile'
 
 
 function Login() {
    const { setUsername, setShowProfile}= useContext(LoginContext)
-   
+
    function loginFun(){
     setShowProfile(true)
    }
