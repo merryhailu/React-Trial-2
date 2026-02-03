@@ -16,7 +16,8 @@ function Home() {
   const removePop = useBear((state) => state.removePop);
 
   // useStore (data + fetch)
- const data = useStore((state) => state.data)
+
+  const data = useStore((state) => state.data);
   const fetch = useStore((state) => state.fetch);
 
   useEffect(() => {
@@ -37,7 +38,6 @@ function Home() {
       <p>bears: {bears}</p>
       <button onClick={increasePop}>increase pop</button>
       <button onClick={removePop}>remove pop</button>
-     
 
       <h3>useStore data</h3>
       <ul>
