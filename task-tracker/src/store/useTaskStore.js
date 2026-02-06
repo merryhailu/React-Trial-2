@@ -10,13 +10,24 @@ const useTaskStore = create((set) => ({
         set((state) => ({ tasks: state.tasks.filter(task => task.id !== id) }))
     },
     toggleTask: (id) => {
-        set((state) => ({
-            tasks: state.tasks.map(task =>
+        set((state) => {
+            // set((state) => ({
+            //     tasks: state.tasks.map(task =>
+            const updatedTasks = state.tasks.map((task) =>
                 task.id === id ? { ...task, completed: !task.completed } : task
             )
 
-        }))
+            // Sort so incomplete tasks come first and completed tasks go to the bottom
+            const sortedTasks = [...updatedTasks].sort(
+                (a, b) => Number(a.completed) - Number(b.completed)
+            )
+
+            return { tasks: sortedTasks }
+        })
     },
+
+
+
     fetchTasks: async () => {
         try {
             const response = await fetch("https://jsonplaceholder.typicode.com/todos");

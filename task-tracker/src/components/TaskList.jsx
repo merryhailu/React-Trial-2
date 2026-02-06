@@ -6,6 +6,8 @@ const TaskList = () => {
   return (
     <>
       <h2>Task List</h2>
+
+      {/* <button onClick={sortByCompleted}>sort by completed</button> */}
       <ul>
         {tasks.map((task) => (
           <li

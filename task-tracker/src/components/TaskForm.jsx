@@ -1,14 +1,29 @@
 import React, { useState } from 'react';
 import useTaskStore from '../store/useTaskStore';
+import useMessageStore from '../store/useMessageStore';
 
 const TaskForm = () => {
   const [text, setText] = useState('');
   const addTask = useTaskStore((state) => state.addTask);
+  const setMessage = useMessageStore((state) => state.setMessage);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask({ id: Date.now(), title: text, completed: false });
-    setText('');
+
+    // Validation: Check if task name is empty or only whitespace
+    const trimmedText = text.trim();
+    if (!trimmedText) {
+      setMessage('Task name cannot be empty', 'error');
+      return;
+    }
+
+    try {
+      addTask({ id: Date.now(), title: trimmedText, completed: false });
+      setText('');
+    } catch (error) {
+      // Error message is already handled by addTask in the store
+      console.error('Error in TaskForm:', error);
+    }
   };
 
   return (
