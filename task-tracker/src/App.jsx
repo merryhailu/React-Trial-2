@@ -6,12 +6,15 @@ import Snackbar from './components/Snackbar';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 import RecipeDetails from './components/RecipeDetails';
+import Todo from './components/todo';
 
 function App() {
   return (
     <>
-      <Routes>
-        {/* <div className="flex h-screen items-center justify-center">
+      <Todo />
+
+      {/* <Routes> */}
+      {/* <div className="flex h-screen items-center justify-center">
         <div className="w-96 rounded-lg bg-white p-6 text-center shadow-md">
           <div className="mb-6">
             <h1 className="text-2xl font-semibold">Task Tracker</h1>
@@ -24,11 +27,11 @@ function App() {
      
         </div>
       </div> */}
-        <Route path="/" element={<AddRecipeForm />} />
-        {/* <Route path="/" element={<RecipeList />} /> */}
+      {/* <Route path="/" element={<AddRecipeForm />} /> */}
+      {/* <Route path="/" element={<RecipeList />} /> */}
 
-        <Route path="/recipedetail/:id" element={<RecipeDetails />} />
-      </Routes>
+      {/* <Route path="/recipedetail/:id" element={<RecipeDetails />} />
+      </Routes> */}
     </>
   );
 }
