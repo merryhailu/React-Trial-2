@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TodoItems from './TodoItems';
 
 const Todo = () => {
@@ -21,9 +21,30 @@ const Todo = () => {
     setText('');
   };
 
+  const deleteTodo = (id) => {
+    setTodoList((prevTodos) => {
+      return prevTodos.filter((todo) => todo.id !== id);
+    });
+  };
+
+  const toggle = (id) => {
+    setTodoList((prvTodo) => {
+      return prvTodo.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, isCompleted: !todo.isCompleted };
+        }
+        return todo;
+      });
+    });
+  };
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todoList));
+  }, [todoList]);
+
   return (
     <div
-      className="flex min-h-[550px] w-11/12 max-w-md flex-col place-self-center
+      className="min-h-137 flex w-11/12 max-w-md flex-col place-self-center
   rounded-xl bg-white p-7"
     >
       {/* Title */}
@@ -53,8 +74,16 @@ const Todo = () => {
 
       {/*todo list */}
       <div>
-        <TodoItems />
-        <TodoItems />
+        {todoList.map((list, index) => (
+          <TodoItems
+            key={index}
+            title={list.title}
+            id={list.id}
+            isCompleted={list.isCompleted}
+            deleteTodo={deleteTodo}
+            toggle={toggle}
+          />
+        ))}
       </div>
     </div>
   );
