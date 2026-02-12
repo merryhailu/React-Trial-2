@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const TodoItems = ({ title, id, isCompleted, deleteTodo, toggle }) => {
   return (
