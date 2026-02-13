@@ -5,18 +5,22 @@ import About from './Component/About';
 import Service from './Component/Service';
 import Contact from './Component/Contact';
 import NavBar from './Component/NavBar';
+import TaskForm from './Component/TaskForm';
+import TaskList from './Component/TaskList';
 
 function App() {
   return (
     <>
-      <NavBar />
+      <TaskForm />
+      <TaskList />
+      {/* <NavBar />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/service" element={<Service />} />
         <Route path="/contact" element={<Contact />} />
-      </Routes>
+      </Routes> */}
     </>
   );
 }
