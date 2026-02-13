@@ -7,12 +7,22 @@ import Contact from './Component/Contact';
 import NavBar from './Component/NavBar';
 import TaskForm from './Component/TaskForm';
 import TaskList from './Component/TaskList';
+import AddRecipeForm from './Component/AddRecipeForm';
+import RecipeList from './Component/RecipeList';
+import RecipeDetail from './Component/RecipeDetail';
 
 function App() {
   return (
     <>
-      <TaskForm />
-      <TaskList />
+      <AddRecipeForm />
+
+      <Routes>
+        <Route path="/" element={<RecipeList />} />
+        <Route path="/recipedetail/:recipeId" element={<RecipeDetail />} />
+      </Routes>
+      {/* <TaskForm />
+      <TaskList /> */}
+
       {/* <NavBar />
 
       <Routes>
